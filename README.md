@@ -58,8 +58,8 @@
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="docs/screenshots/helm-controller.png" alt="Load Balancer Controller"><br>
-      <b>Load Balancer Controller (Helm)</b>
+      <img src="docs/screenshots/pv_pvc.png" alt="Load Balancer Controller"><br>
+      <b>Persistent Volume Claim and Persistent Volume</b>
     </td>
     <td align="center" width="50%">
       <img src="docs/screenshots/ingress.png" alt="Ingress"><br>
