@@ -31,12 +31,7 @@
 
 ## 📸 Project Screenshots
 
-### 🖥️ Live Application
 
-<div align="center">
-  <img src="docs/screenshots/app.png" alt="Application UI" width="90%">
-  <p><i>The application running through the AWS Load Balancer URL</i></p>
-</div>
 
 ### ☸️ Under the Hood
 
