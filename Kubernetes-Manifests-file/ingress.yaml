@@ -7,24 +7,25 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+
 spec:
   ingressClassName: alb
+
   rules:
-    - host: backend.amanpathakdevops.study
-      http:
+    - http:
         paths:
           - path: /api
             pathType: Prefix
             backend:
               service:
                 name: api
-                port:   
+                port:
                   number: 3500
+
           - path: /
             pathType: Prefix
             backend:
               service:
                 name: frontend
-                port: 
+                port:
                   number: 3000
-      
