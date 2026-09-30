@@ -151,26 +151,71 @@ flowchart TD
 
 ```bash
 .
-├── 🎨 frontend/                 # React app + Dockerfile
-├── ⚙️ backend/                  # Node.js API + Dockerfile
-├── 🗄️ database/                 # MongoDB Dockerfile
-├── ☸️ k8s/
-│   ├── namespace.yaml
-│   ├── mongo-secret.yaml.example
-│   ├── mongo-pv.yaml
-│   ├── mongo-pvc.yaml
-│   ├── mongo-deployment.yaml
-│   ├── mongo-service.yaml
-│   ├── backend-deployment.yaml
-│   ├── backend-service.yaml
-│   ├── frontend-deployment.yaml
-│   ├── frontend-service.yaml
-│   └── ingress.yaml
-├── 🖼️ docs/
-│   ├── architecture.png
-│   └── screenshots/
-├── .gitignore
-└── README.md
+├── 📁 Application-Code/
+│   ├── ⚙️ backend/
+│   │   ├── 📁 models/
+│   │   │   └── bank.js
+│   │   ├── 📁 routes/
+│   │   │   └── bank.js
+│   │   ├── .dockerignore
+│   │   ├── Dockerfile
+│   │   ├── db.js
+│   │   ├── index.js
+│   │   ├── package-lock.json
+│   │   └── package.json
+│   │
+│   └── 🎨 frontend/
+│       ├── 📁 public/
+│       │   ├── favicon.ico
+│       │   ├── index.html
+│       │   ├── logo192.png
+│       │   ├── logo512.png
+│       │   ├── manifest.json
+│       │   └── robots.txt
+│       ├── 📁 src/
+│       │   ├── 📁 services/
+│       │   ├── App.css
+│       │   ├── App.js
+│       │   ├── index.js
+│       │   └── index.css
+│       ├── .dockerignore
+│       ├── Dockerfile
+│       ├── package-lock.json
+│       └── package.json
+│
+├── ☸️ Kubernetes-Manifests-file/
+│   ├── 📁 Backend/
+│   │   ├── deployment.yaml
+│   │   └── service.yaml
+│   │
+│   ├── 📁 Database/
+│   │   ├── deployment.yaml
+│   │   ├── pv.yaml
+│   │   ├── pvc.yaml
+│   │   ├── secret.yaml
+│   │   ├── service.yaml
+│   │   └── three-tier-backup.yaml
+│   │
+│   ├── 📁 frontend/
+│   │   ├── deployment.yaml
+│   │   ├── hpa.yaml
+│   │   └── service.yaml
+│   │
+│   ├── ingress.yaml
+│   └── middleware
+│
+├── 🖼️ assets/
+│   └── Three-Tier.gif
+│
+├── 📸 docs/
+│   └── 📁 screenshots/
+│       ├── alb.png
+│       ├── ecr.png
+│       ├── eks.png
+│       ├── ingress.png
+│       └── kubectl-resources.png
+│
+└── 📄 README.md
 ```
 
 > 💡 Adjust file names to match your repository.
