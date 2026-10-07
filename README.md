@@ -89,17 +89,17 @@ The frontend, backend and database are each packaged as their own **Docker image
 
 ```mermaid
 flowchart LR
-    U([👤 User]) --> ALB[⚖️ AWS Load Balancer]
+    User["User (Browser)"] --> ALB["AWS Application Load Balancer"]
 
-    subgraph EKS[☸️ Amazon EKS Cluster]
-        FE[🎨 Frontend<br/>React + Nginx]
-        BE[⚙️ Backend<br/>Node.js + Express]
-        DB[(🗄️ MongoDB<br/>Persistent Storage)]
+    subgraph EKS["Amazon EKS Cluster"]
+        FE["Frontend<br/>React + Nginx"]
+        BE["Backend<br/>Node.js + Express"]
+        DB["MongoDB<br/>Persistent Volume"]
         BE --> DB
     end
 
-    ALB -->|"/ (website)"| FE
-    ALB -->|"/api (data)"| BE
+    ALB -->|"/"| FE
+    ALB -->|"/api"| BE
 ```
 
 ### 🔎 How It Works
