@@ -88,26 +88,27 @@ The frontend, backend and database are each packaged as their own **Docker image
 ## 🏗️ Architecture
 
 ```mermaid
-flowchart TD
-    U([🌍 User / Browser]) --> ALB[⚖️ AWS Application Load Balancer]
-    ALB --> ING[🚪 Ingress<br/>AWS Load Balancer Controller]
+flowchart LR
+    U([👤 User]) --> ALB[⚖️ AWS Load Balancer]
 
-    subgraph EKS[☸️ Amazon EKS Cluster - t3.small nodes]
-        ING -->|/| FS[Frontend Service]
-        ING -->|/api| BS[Backend Service]
-        FS --> FD[⚛️ React Deployment]
-        BS --> BD[🟢 Node.js Deployment]
-        BD --> MS[Mongo Service]
-        MS --> MD[🍃 MongoDB Deployment]
-        MD --> PVC[(PVC)] --> PV[(PV)]
-        SEC[🔐 Mongo Secret] -.-> MD
-        SEC -.-> BD
+    subgraph EKS[☸️ Amazon EKS Cluster]
+        FE[🎨 Frontend<br/>React + Nginx]
+        BE[⚙️ Backend<br/>Node.js + Express]
+        DB[(🗄️ MongoDB<br/>Persistent Storage)]
+        BE --> DB
     end
 
-    ECR[(📦 Amazon ECR)] -.->|image pull| FD
-    ECR -.->|image pull| BD
-    ECR -.->|image pull| MD
+    ALB -->|"/ (website)"| FE
+    ALB -->|"/api (data)"| BE
 ```
+
+### 🔎 How It Works
+
+1. **User** opens the app in the browser and reaches the **AWS Load Balancer**.
+2. The Load Balancer sends **`/`** requests to the **Frontend** (React) and **`/api`** requests to the **Backend** (Node.js).
+3. The **Backend** reads and writes data in **MongoDB**, which keeps its data on a **Persistent Volume** so nothing is lost on restart.
+
+> 📦 Docker images for all three tiers are stored in **Amazon ECR** and pulled by EKS. 🔐 Database credentials are kept in **Kubernetes Secrets**.
 
 <details>
 <summary><b>📋 Tier breakdown (click to expand)</b></summary>
