@@ -18,12 +18,6 @@
 
 <br>
 
-[Screenshots](#-project-screenshots) •
-[About](#-about-the-project) •
-[Architecture](#-architecture) •
-[Tech Stack](#-tech-stack) •
-[Getting Started](#-getting-started) •
-[Learnings](#-challenges--learnings)
 
 </div>
 
