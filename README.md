@@ -87,23 +87,9 @@ The frontend, backend and database are each packaged as their own **Docker image
 
 ## 🏗️ Architecture
 
-## 🏗️ Architecture
-
-```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 40, "padding": 8}, "themeVariables": {"fontSize": "13px"}}}%%
-flowchart LR
-    U[User] --> ALB[AWS Load Balancer]
-
-    subgraph EKS[Amazon EKS Cluster]
-        FE[Frontend<br/>React + Nginx]
-        BE[Backend<br/>Node.js + Express]
-        DB[MongoDB<br/>Persistent Storage]
-        BE --> DB
-    end
-
-    ALB -->|"/ (website)"| FE
-    ALB -->|"/api (data)"| BE
-```
+<p align="center">
+  <img src="assets/architecture.svg" alt="Architecture diagram" width="800">
+</p>
 
 ### 🔎 How It Works
 
