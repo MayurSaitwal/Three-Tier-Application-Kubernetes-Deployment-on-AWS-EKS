@@ -1,6 +1,6 @@
 <div align="center">
 
-# ☸️ Three-Tier Application on AWS 
+# ☸️ Three-Tier Application on AWS EKS
 
 ### React · Node.js · MongoDB — containerized, pushed to ECR, and exposed through an AWS Load Balancer 
 
